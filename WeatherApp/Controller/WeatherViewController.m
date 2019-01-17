@@ -18,6 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Adding default value of Mumbai
+    [self userEnteredData:@"19.0100" andlat:@"72.8499"];
     // Do any additional setup after loading the view.
 }
 
