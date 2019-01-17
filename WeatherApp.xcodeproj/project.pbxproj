@@ -25,6 +25,7 @@
 		3ACBDC7C21EF7504004C1143 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACBDC6921EF7504004C1143 /* AFNetworkReachabilityManager.m */; };
 		3ACBDC7D21EF7504004C1143 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACBDC6A21EF7504004C1143 /* AFSecurityPolicy.m */; };
 		3ACBDC8021EF7559004C1143 /* WeatherNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACBDC7F21EF7559004C1143 /* WeatherNetworkManager.m */; };
+		3ACBDC8721F0871B004C1143 /* WeatherDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACBDC8621F0871B004C1143 /* WeatherDataModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		3ACBDC6B21EF7504004C1143 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		3ACBDC7E21EF7559004C1143 /* WeatherNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherNetworkManager.h; sourceTree = "<group>"; };
 		3ACBDC7F21EF7559004C1143 /* WeatherNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherNetworkManager.m; sourceTree = "<group>"; };
+		3ACBDC8521F0871B004C1143 /* WeatherDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherDataModel.h; sourceTree = "<group>"; };
+		3ACBDC8621F0871B004C1143 /* WeatherDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherDataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,7 @@
 		3ACBDC0521EF470D004C1143 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				3ACBDC8421F086E1004C1143 /* Model */,
 				3ACBDC3921EF50CA004C1143 /* Controller */,
 				3ACBDC3821EF4F22004C1143 /* View */,
 				3ACBDC0621EF470D004C1143 /* AppDelegate.h */,
@@ -222,6 +226,15 @@
 				3ACBDC6B21EF7504004C1143 /* AFHTTPSessionManager.h */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		3ACBDC8421F086E1004C1143 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3ACBDC8521F0871B004C1143 /* WeatherDataModel.h */,
+				3ACBDC8621F0871B004C1143 /* WeatherDataModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +369,7 @@
 			files = (
 				3ACBDC7821EF7504004C1143 /* AFURLSessionManager.m in Sources */,
 				3ACBDC7721EF7504004C1143 /* AFURLConnectionOperation.m in Sources */,
+				3ACBDC8721F0871B004C1143 /* WeatherDataModel.m in Sources */,
 				3ACBDC7921EF7504004C1143 /* AFHTTPRequestOperationManager.m in Sources */,
 				3ACBDC8021EF7559004C1143 /* WeatherNetworkManager.m in Sources */,
 				3ACBDC7C21EF7504004C1143 /* AFNetworkReachabilityManager.m in Sources */,

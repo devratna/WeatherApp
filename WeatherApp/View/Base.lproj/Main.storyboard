@@ -36,7 +36,7 @@
                                     <action selector="getWeatherPressed:" destination="V0v-Z6-uLe" eventType="touchUpInside" id="aHx-vr-hYj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngf-55-xXc" userLabel="Change City Button">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ngf-55-xXc" userLabel="Change City Button">
                                 <rect key="frame" x="344" y="20" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="SaP-yg-MTp"/>
