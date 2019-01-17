@@ -27,27 +27,48 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+/**
+ This method validates string
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+ @param string value
+ @return boolean value
+ */
+- (BOOL) isValid:(NSString *)string {
+    if (string == nil || [string isEqual:[NSNull null]] || ![string isKindOfClass:[NSString class]] ||[string isEqualToString:@""]) {
+        return NO;
+    }
+    return YES;
 }
-*/
 
+/**
+ This method will be called when user press the getWeather button
+
+ @param sender id
+ */
 - (IBAction)getWeatherPressed:(id)sender {
     
     [self.longitude resignFirstResponder];
     [self.latitude resignFirstResponder];
+    if(![self isValid:self.longitude.text]) {
+        [self showAlertMessage:@"Please enter valid longitude value " withTitle:@"Error!"];
+    }
+   if(![self isValid:self.latitude.text]) {
+        [self showAlertMessage:@"Please enter valid latitude value " withTitle:@"Error!"];
+    }
     NSString *longitude = self.longitude.text;
     NSString *latitude = self.latitude.text;
     self.longitude.text = @"";
     self.latitude.text = @"";
     [self userEnteredData:longitude andlat:latitude];
 }
+
+/**
+ This method will be called to call server API and handling
+ response from server has been done in this method.
+
+ @param longitude longitude text value
+ @param latitude latitude text value
+ */
 - (void)userEnteredData:(NSString *)longitude andlat:(NSString *)latitude {
     
     [[WeatherNetworkManager sharedManager] GETweatherFromLongitude:longitude
@@ -56,21 +77,26 @@
     NSDictionary *jsonDict = [[NSDictionary alloc]initWithDictionary:responseDict];
     NSLog(@"JSON %@",jsonDict);
     NSLog(@"Success! Got the weather data");
-    [self showAlertMessage:@"Success! Got the weather data" withTitle:@"Success!"];
     WeatherDataModel *model = [[WeatherDataModel alloc] initWithWeatherData:jsonDict];
                                                     dispatch_async(dispatch_get_main_queue(), ^{
                                                         NSString *final = [model.temp stringValue];
                                                         self.tempLabel.text = [final stringByAppendingString:@"°"];
                                                         self.cityLabel.text = model.city;
-                                                        self.weatherImage.image = [UIImage imageNamed:model.weatherIconName] ;
+                                                        self.weatherImage.image = [UIImage imageNamed:model.weatherIconName];
                                                                });
-                                                               
+    NSString *message = @"Success! Got the weather data of ";
+    [self showAlertMessage:[message stringByAppendingString:model.city] withTitle:@"Success!"];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-       // NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
-         [self showAlertMessage:@"Error encountered please try again" withTitle:@"Error!"];
-
+        [self showAlertMessage:@"Error encountered please try again" withTitle:@"Error!"];
                                                            }];
 }
+
+/**
+ This method will show alert based on the message it received
+
+ @param message message
+ @param title title
+ */
 - (void)showAlertMessage:(NSString*)message withTitle:(NSString *)title {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
                                                                    message:message

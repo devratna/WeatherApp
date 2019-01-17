@@ -18,6 +18,11 @@
     return self;
 }
 
+/**
+ This method will set the properties of model with data received in reponse
+
+ @param weatherData jsondictionary
+ */
 - (void)setPropertiesWithDictionary:(NSDictionary *)weatherData {
 
     NSNumber *tempResult = [NSNumber numberWithInt:[[weatherData valueForKeyPath:@"main.temp"] doubleValue] - 273.15];
@@ -30,6 +35,11 @@
     [self updateWeatherIcon:conditionVal];
 }
 
+/**
+ This method will update the weather icon based on the value received in the reponse
+
+ @param idVal int
+ */
 - (void) updateWeatherIcon:(int)idVal {
     
     switch (idVal) {
